@@ -6,6 +6,7 @@ export default function MicroFrontend(props) {
     const scriptId = `micro-frontend-script-${name}`;
 
     if (document.getElementById(scriptId)) {
+      console.log('??')
       renderMicroFrontend();
       return;
     }
@@ -27,6 +28,7 @@ export default function MicroFrontend(props) {
   })
 
   const renderMicroFrontend = () => {
+    console.log('renderMicroFrontend')
     const { name, window, history } = props;
     window[`render${name}`](`${name}-container`, history);
   }

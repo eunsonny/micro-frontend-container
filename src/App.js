@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes, Redirect } from "react-router-dom";
 import AppHeader from "./AppHeader";
 import MicroFrontend from "./MicroFrontend";
 import About from "./About";
-import "./App.css";
 
 const {
   REACT_APP_BROWSE_HOST: browseHost,
