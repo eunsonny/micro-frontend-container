@@ -6,7 +6,6 @@ export default function MicroFrontend(props) {
     const scriptId = `micro-frontend-script-${name}`;
 
     if (document.getElementById(scriptId)) {
-      console.log('??')
       renderMicroFrontend();
       return;
     }
@@ -18,18 +17,18 @@ export default function MicroFrontend(props) {
       script.id = scriptId;
       script.crossOrigin = '';
       script.src = `${host}${manifest['main.js']}`;
-      script.onload = this.renderMicroFrontend;
+      script.onload = renderMicroFrontend;
       document.head.appendChild(script);
     });
 
     return () => {
       window[`unmount${name}`](`${name}-container`);
     }
-  })
+  }, [])
 
   const renderMicroFrontend = () => {
-    console.log('renderMicroFrontend')
-    const { name, window, history } = props;
+    const { name, history } = props;
+    console.log(window)
     window[`render${name}`](`${name}-container`, history);
   }
 
