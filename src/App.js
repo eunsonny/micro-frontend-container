@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import AppHeader from "./AppHeader";
 import MicroFrontend from "./MicroFrontend";
 import About from "./About";
@@ -27,7 +27,7 @@ const Restaurant = ({ history }) => (
   <MicroFrontend history={history} host={restaurantHost} name="Restaurant" />
 );
 
-// const Random = () => <Redirect to={`/restaurant/${getRandomRestaurantId()}`} />;
+const Random = () => <Navigate replace to={`/restaurant/${getRandomRestaurantId()}`} />;
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Browse />} />
         <Route path="/restaurant/:id" element={<Restaurant />} />
-        {/* <Route path="/random" element={<Random />} /> */}
+        <Route path="/random" element={<Random />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>

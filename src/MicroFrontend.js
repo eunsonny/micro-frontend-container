@@ -16,7 +16,7 @@ export default function MicroFrontend(props) {
       const script = document.createElement('script');
       script.id = scriptId;
       script.crossOrigin = '';
-      script.src = `${host}${manifest['main.js']}`;
+      script.src = `${host}${manifest['files']['main.js']}`;
       script.onload = renderMicroFrontend;
       document.head.appendChild(script);
     });
@@ -28,7 +28,6 @@ export default function MicroFrontend(props) {
 
   const renderMicroFrontend = () => {
     const { name, history } = props;
-    console.log(window)
     window[`render${name}`](`${name}-container`, history);
   }
 
