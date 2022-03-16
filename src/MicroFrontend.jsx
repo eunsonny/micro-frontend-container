@@ -24,9 +24,9 @@ export default function MicroFrontend(props) {
       document.head.appendChild(script);
     });
 
-    return () => {
-      window[`unmount${name}`](`${name}-container`);
-    }
+    // return () => {
+    //   window[`unmount${name}`](`${name}-container`);
+    // }
   }, [])
 
   const renderMicroFrontend = () => {
