@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function MicroFrontend(props) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const { name, host } = props;
     const scriptId = `micro-frontend-script-${name}`;
@@ -27,8 +30,8 @@ export default function MicroFrontend(props) {
   }, [])
 
   const renderMicroFrontend = () => {
-    const { name, history } = props;
-    window[`render${name}`](`${name}-container`, history);
+    const { name } = props;
+    window[`render${name}`](`${name}-container`, navigate);
   }
 
   return (
